@@ -8,3 +8,7 @@ def add(numbers):
             count+=1
     if count==0:
         return int(numbers)
+
+    numbers=numbers.split(",")
+    numbers=[int(num) for num in numbers]
+    return sum(numbers)
