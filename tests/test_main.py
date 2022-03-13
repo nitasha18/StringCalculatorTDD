@@ -30,3 +30,7 @@ def test_stringCalculator_throws_exception_with_negative_numbers():
         add("//;\n1;2-4,3-$4\n-3")
     except ValueError as e:
         assert str(e) == "Negatives are not allowed [-4, -3]", "String calculater should throw exception on negative inputs"
+
+def test_stringCalculator_handles_numbers_greater_than_thousand():
+    result = add("//;\n1002,2")
+    assert result == 2, "String calculater should ignore numbers bigger than 1000"
