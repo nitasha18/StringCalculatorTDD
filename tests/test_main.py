@@ -4,3 +4,7 @@ from stringcalculator.main import add
 def test_stringCalculator_should_return_zero_on_empty_string():
     result = add("")
     assert result == 0, "String calculater should return 0 on empty string"
+
+def test_stringCalculator_should_return_same_value_on_single_input():
+    result = add("5")
+    assert result == 5, "String calculater should return same value on single input"
