@@ -1,3 +1,5 @@
+import re
+
 def add(numbers):
     if numbers=="":
         return 0
@@ -9,6 +11,5 @@ def add(numbers):
     if count==0:
         return int(numbers)
 
-    numbers=numbers.split(",")
-    numbers=[int(num) for num in numbers]
+    numbers = map(int, re.split(",|\n", numbers))
     return sum(numbers)
