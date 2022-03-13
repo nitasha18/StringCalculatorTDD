@@ -11,5 +11,7 @@ def add(numbers):
     if count==0:
         return int(numbers)
 
-    numbers = map(int, re.findall(r"\d+", numbers))
+    numbers = list(map(int, re.findall(r"-?\d+", numbers)))
+    if any(num < 0 for num in numbers):
+        raise ValueError("Negatives are not allowed " + str([num for num in numbers if num < 0]))
     return sum(numbers)
