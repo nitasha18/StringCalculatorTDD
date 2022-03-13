@@ -34,3 +34,10 @@ def test_stringCalculator_throws_exception_with_negative_numbers():
 def test_stringCalculator_handles_numbers_greater_than_thousand():
     result = add("//;\n1002,2")
     assert result == 2, "String calculater should ignore numbers bigger than 1000"
+
+def  test_stringCalculator_should_allow_multiple_and_longer_delimeters():
+    result = add("//[***]\n1***2***3")
+    assert result == 6, "String calculater should return 6 for \"//[***]\n1***2***3\" string"
+
+    result = add("//[*][%]\n1*2%3")
+    assert result == 6, "String calculater should return 6 for \//[*][%]\n1*2%3\" string"  
