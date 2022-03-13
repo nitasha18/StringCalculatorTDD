@@ -16,3 +16,7 @@ def test_stringCalculator_return_sumation_on_two_value():
 def test_stringCalculator_return_sumation_for_multiple_numbers():
     result = add("5,4,3,2,1")
     assert result == 15, "String calculater should return correct addition for multiple numbers"
+
+def test_stringCalculator_return_sumation_with_newline_delimiter():
+    result = add("1\n2,3")
+    assert result == 6, "String calculater should return correct addition for inputs separated with newline delimeter"
