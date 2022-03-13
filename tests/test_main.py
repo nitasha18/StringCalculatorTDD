@@ -8,3 +8,7 @@ def test_stringCalculator_should_return_zero_on_empty_string():
 def test_stringCalculator_should_return_same_value_on_single_input():
     result = add("5")
     assert result == 5, "String calculater should return same value on single input"
+
+def test_stringCalculator_return_sumation_on_two_value():
+    result = add("5,4")
+    assert result == 9, "String calculater should return correct addition for two numbers"
