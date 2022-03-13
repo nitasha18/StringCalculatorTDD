@@ -24,3 +24,9 @@ def test_stringCalculator_return_sumation_with_newline_delimiter():
 def test_stringCalculator_return_sumation_with_different_delimiter():
     result = add("//;\n1;2,3-$4\n")
     assert result == 10, "String calculater should return correct addition for inputs separated with different delimeter"
+
+def test_stringCalculator_throws_exception_with_negative_numbers():
+    try:
+        add("//;\n1;2-4,3-$4\n-3")
+    except ValueError as e:
+        assert str(e) == "Negatives are not allowed [-4, -3]", "String calculater should throw exception on negative inputs"
