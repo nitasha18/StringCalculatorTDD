@@ -20,3 +20,7 @@ def test_stringCalculator_return_sumation_for_multiple_numbers():
 def test_stringCalculator_return_sumation_with_newline_delimiter():
     result = add("1\n2,3")
     assert result == 6, "String calculater should return correct addition for inputs separated with newline delimeter"
+
+def test_stringCalculator_return_sumation_with_different_delimiter():
+    result = add("//;\n1;2,3-$4\n")
+    assert result == 10, "String calculater should return correct addition for inputs separated with different delimeter"
