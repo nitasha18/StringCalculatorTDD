@@ -11,5 +11,5 @@ def add(numbers):
     if count==0:
         return int(numbers)
 
-    numbers = map(int, re.split(",|\n", numbers))
+    numbers = map(int, re.findall(r"\d+", numbers))
     return sum(numbers)
