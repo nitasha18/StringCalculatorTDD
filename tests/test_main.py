@@ -26,10 +26,9 @@ def test_stringCalculator_return_sumation_with_different_delimiter():
     assert result == 10, "String calculater should return correct addition for inputs separated with different delimeter"
 
 def test_stringCalculator_throws_exception_with_negative_numbers():
-    try:
+    with pytest.raises(ValueError) as e:
         add("//;\n1;2-4,3-$4\n-3")
-    except ValueError as e:
-        assert str(e) == "Negatives are not allowed [-4, -3]", "String calculater should throw exception on negative inputs"
+    assert str(e.value) == "Negatives are not allowed [-4, -3]", "String calculater should throw exception on negative inputs"
 
 def test_stringCalculator_handles_numbers_greater_than_thousand():
     result = add("//;\n1002,2")
