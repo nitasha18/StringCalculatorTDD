@@ -13,21 +13,31 @@ def add(numbers):
         Integer (int): Summation of the given numbers 
     """
 
-    if numbers=="":
+    empty_string = ""
+    none_type = None
+    digit_count = 0
+    numbers_regex = "-?\\d+"
+    calculator_limit = 1000
+
+    if numbers == none_type:
+        return -1
+
+    if numbers == empty_string:
         return 0
 
-    count=0
     for i in range(len(numbers)):
         if numbers[i].isdigit()==False:
-            count+=1
-    if count==0:
+            digit_count+=1
+    if digit_count==0:
         return int(numbers)
 
-    numbers = list(map(int, re.findall(r"-?\d+", numbers)))
-    if any(num < 0 for num in numbers):
-        raise ValueError("Negatives are not allowed " + str([num for num in numbers if num < 0]))
+    numbers = list(map(int, re.findall(numbers_regex, numbers)))
 
-    numbers = list(filter(lambda x : x<1000, numbers))
+    if any(number < 0 for number in numbers):
+        raise ValueError("Negatives are not allowed " + str([number for number in numbers if number < 0]))
+
+    numbers = list(filter(lambda number : number < calculator_limit, numbers))
+
     return sum(numbers)
 
 
